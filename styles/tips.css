@@ -1,0 +1,230 @@
+body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.content-container{
+    height: 100vh;
+    width: 100vw;
+    background-image: url("/assets/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.a{
+    margin-left: 3%;
+}
+
+.logo{
+    height: 30px;
+    width: 30px;
+    
+}
+
+.options{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.option{
+    height: 60%;
+    width: 15%;
+    background-color: rgb(240, 97, 104);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+
+.option:hover{
+    background-color: rgb(245, 67, 76);
+    border: 1px solid black;
+    transition: 0.5s ease-in;
+    color: black;
+}
+
+.op-logo{
+    height: 30px;
+    width: 30px;
+}
+
+.op-text{
+    font-family: 'Philosopher', sans-serif;
+    font-size: 18px;
+}
+
+@media (max-width: 1000px) {
+    .op-logo{
+        height: 20px;
+        width: 20px;
+    }
+    .op-text{
+        font-size: 14px;
+    }
+}
+@media (max-height: 750px) {
+    .op-logo{
+        height: 20px;
+        width: 20px;
+    }
+    .op-text{
+        font-size: 14px;
+    }
+
+    @media (max-width: 700px){
+        .op-logo{
+            display: none;
+        }
+
+    }
+}
+
+.content{
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.general{
+    margin-top: 50px;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+
+    display: none;
+}
+
+.stress{
+    margin-top: 50px;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    display: none;
+}
+
+.anxiety{
+    margin-top: 50px;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    display: none;
+}
+
+.depression{
+    margin-top: 50px;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    display: none;
+}
+
+.focus{
+    margin-top: 50px;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    display: none;
+}
+
+.grid-item{
+    height: 70%;
+    width: 80%;
+    background-color: whitesmoke;
+    color: black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: 'Philosopher', sans-serif;
+}
+
+.title{
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.description{
+    margin: 0px 20px;
+    font-size: 16px;
+}
+
+@media (max-width: 1450px) {
+    .title{
+        font-size: 18px;
+    }
+    
+    .description{
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 900px) {
+    .title{
+        font-size: 14px;
+    }
+    
+    .description{
+        font-size: 10px;
+    }
+}
+@media (max-height: 750px) {
+    .title{
+        font-size: 14px;
+    }
+    
+    .description{
+        font-size: 10px;
+    }
+
+    @media (max-width: 875px) {
+        .title{
+        font-size: 10px;
+    }
+    
+    .description{
+        font-size: 7px;
+    }
+    }
+}
+
+@media (max-width: 600px) {
+    .title{
+        font-size: 10px;
+    }
+    
+    .description{
+        font-size: 7px;
+    }
+}

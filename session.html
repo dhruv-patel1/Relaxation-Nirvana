@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="/assets/lotus.svg">
+        <title>Relaxation Nirvana</title>
+        <link rel="stylesheet" href="/styles/session.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Philosopher&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="content-container" id="c">
+            <div class="header">
+                <a class="a" href="options.html">
+                    <img src="/assets/arrow.svg" alt=""  class="logo"/>
+                </a>
+            </div>
+
+            <div class="content">
+                <div class="inputs">
+                        <div class="input-header">
+                            <p class="input-title">Customize your Session</p>
+                        </div>
+
+                        <div class="vibe-container">
+                            <div class="vibe-title">
+                                <label for="bg-image">Change Vibe</label>
+                            </div>
+
+                            <div class="vibe-options">
+                                <select id="bg-type" onchange="handleBg(this.value)">
+                                    <option value="1">Emory</option>
+                                    <option value="2">Beach</option>
+                                    <option value="3">Clouds</option>
+                                    <option value="4">Lake</option>
+                                    <option value="5">Mountains</option>
+                                    <option value="6">Nature</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="sound-selector">
+                            <div class="sound-title">
+                                <label for="bg-image">Choose Sound</label>
+                            </div>
+                            <div class="sound-options">
+                                <select id="bg-type" onchange="handleSound(this.value)">
+                                    <option value="1">Calming</option>
+                                    <option value="2">Waves</option>
+                                    <option value="3">Stress Relief</option>
+                                    <option value="4">Deep Focus</option>
+                                </select>
+                                <audio id="1" loop="loop">
+                                    <source src="/assets/sounds/calm.mp3" type="audio/mp3">
+                                </audio>
+                                <audio id="2" loop="loop">
+                                    <source src="/assets/sounds/waves.mp3" type="audio/mp3">
+                                </audio>
+                                <audio id="3" loop="loop">
+                                    <source src="/assets/sounds/stress.mp3" type="audio/mp3">
+                                </audio>
+                                <audio id="4" loop="loop">
+                                    <source src="/assets/sounds/focus.mp3" type="audio/mp3">
+                                </audio>
+                            </div>
+                        </div>
+
+                        <div class="time-input">
+                            <div class="time-title">
+                                <label for="bg-image">Meditation Duration (minutes)</label>
+                            </div>
+                            <div class="time-options">
+                                <input type="number" id="time" class="timeinput" required onchange="handleTime(this.value)"/>
+                            </div>
+                        </div>
+
+                        <div class="btn-container">
+                            <div class="btns">
+                                <button class="btn" onclick="start()">Start</button>
+                                <button class="btn" onclick="reset()">Reset</button>
+                            </div>
+
+                            <div class="error-container">
+                                <p id="error" class="error">Enter valid time</p>
+                            </div>
+                        </div>
+                </div>
+                <div class="timer">
+                    <span id="clock" class="clock">0:00</span>
+                </div>
+            </div>
+            
+
+        </div>
+
+        <script>
+
+            let soundselected = 1;
+            let sound;
+            let soundOn = false;
+
+            let timeVal;
+
+            function handleBg(val){
+                const paths = ["placeholder", "/assets/pics/emory.jpg", "/assets/pics/beach.jpg", "/assets/pics/clouds.png", "/assets/pics/lake.jpg", "/assets/pics/mountains.jpg", "/assets/pics/nature.jpg"];
+                
+                let container = document.querySelector('#c');
+                container.style.background = "url(" + paths[val] + ")";
+                container.style.backgroundRepeat = "no-repeat";
+                container.style.backgroundSize = "cover";
+            }
+
+            function handleSound(val){
+                soundselected = val;
+                
+            }
+
+            function handleTime(val){
+                timeVal = val;
+                document.getElementById('clock').innerHTML = timeVal + ":" + 00;
+                console.log(timeVal);
+            }
+
+            function start(){
+                if(timeVal > 0){
+                    const error = document.getElementById('error');
+                    error.style.display = "none";
+
+                    if(soundOn){
+                        sound.pause();
+                        soundOn = false;
+                    }
+                    sound = document.getElementById(soundselected);
+                    sound.play();
+                    soundOn = true;
+
+                    
+                    //Timer Stuff
+                    setInterval(() => {
+                        let current = document.getElementById('clock').innerHTML;
+                        const time = current.split(/[:]+/);
+                        let x = time[0];
+                        const s = seconds((time[1]-1));
+                        if(s == 59){
+                            x = x-1;
+                        }
+                        document.getElementById('clock').innerHTML = x + ":" + s;
+                    }, 1000);
+    
+
+                }
+                else{
+                    const error = document.getElementById('error');
+                    error.style.display = "flex";
+                }
+            }
+
+            function seconds(sPlace){
+                if(sPlace < 10 && sPlace >= 0)
+                {
+                    sPlace= "0" +sPlace;
+                }
+                if(sPlace < 0){
+                    sPlace="59";
+                }
+                 return sPlace;
+            }
+
+            function reset(){
+                window.location.reload();
+                timeVal = 0;
+            }
+
+        </script>
+    </body>
+
+</html>

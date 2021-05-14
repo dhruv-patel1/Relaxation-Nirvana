@@ -1,0 +1,98 @@
+body{
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+
+.content-container{
+    height: 100vh;
+    width: 100vw;
+    background-image: url("/assets/bg3.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+.header{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo{
+    height: 50px;
+    width: 50px;
+    margin-left: 5%;;
+}
+
+
+.content{
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.t1, .t2{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Philosopher', sans-serif;
+    color: #424949;
+    animation: transitionIn 2s;
+}
+
+@keyframes transitionIn {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+.tt1{
+    font-size: 55px;
+    
+}
+
+.tt2{
+    font-size: 40px;
+}
+
+.tt3{
+    margin: 30px 60px;
+    font-family: 'Philosopher', sans-serif;
+    font-size: 24px;
+}
+
+.btn-container{
+    height: 60%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn{
+    border: 2px solid white;
+    text-decoration: none;
+    color: white;
+    border-radius: 3px;
+    animation: transitionIn 2s;
+}
+
+.btn:hover{
+    border: 2px solid #B5C7C7;
+    background-color: #ffffff;
+    color: #424949;
+    transition: 0.5s ease-in;
+}
